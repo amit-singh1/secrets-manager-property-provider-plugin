@@ -1,0 +1,386 @@
+{
+  "name": "AWS Secrets Manager Properties Override",
+  "description": "Crafted AWS Secrets Manager Properties Override Extension",
+  "version": "1.0.0",
+  "vendor": "AWS",
+  "category": "SELECT",
+  "xmlDsl": {
+    "prefix": "aws-secrets-manager-properties-override",
+    "namespace": "http://www.mulesoft.org/schema/mule/aws-secrets-manager-properties-override",
+    "schemaLocation": "http://www.mulesoft.org/schema/mule/aws-secrets-manager-properties-override/current/mule-aws-secrets-manager-properties-override.xsd",
+    "schemaVersion": "1.0.0",
+    "xsdFileName": "mule-aws-secrets-manager-properties-override.xsd"
+  },
+  "resources": [],
+  "subTypes": [],
+  "privilegedPackages": [],
+  "privilegedArtifacts": [],
+  "externalLibraries": [],
+  "importedTypes": [],
+  "configurations": [
+    {
+      "parameterGroupModels": [
+        {
+          "parameters": [
+            {
+              "type": {
+                "format": "java",
+                "type": "Object",
+                "annotations": {
+                  "typeId": "org.mule.runtime.extension.api.runtime.ExpirationPolicy",
+                  "description": {
+                    "value": "Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit."
+                  },
+                  "typeDsl": {
+                    "allowInlineDefinition": true,
+                    "allowTopLevelDefinition": false
+                  }
+                },
+                "fields": [
+                  {
+                    "key": {
+                      "name": "maxIdleTime"
+                    },
+                    "model": {
+                      "type": "Number",
+                      "annotations": {
+                        "int": {},
+                        "classInformation": {
+                          "classname": "java.lang.Long",
+                          "hasDefaultConstructor": false,
+                          "isInterface": false,
+                          "isInstantiable": false,
+                          "isAbstract": false,
+                          "isFinal": true,
+                          "implementedInterfaces": [
+                            "java.lang.Comparable"
+                          ],
+                          "parent": "java.lang.Number",
+                          "genericTypes": [],
+                          "isMap": false
+                        },
+                        "default": "5"
+                      }
+                    },
+                    "annotations": {
+                      "description": {
+                        "value": "A scalar time value for the maximum amount of time a dynamic configuration instance should be allowed to be idle before it\u0027s considered eligible for expiration"
+                      },
+                      "expressionSupport": {
+                        "value": "NOT_SUPPORTED"
+                      }
+                    }
+                  },
+                  {
+                    "key": {
+                      "name": "timeUnit"
+                    },
+                    "model": {
+                      "type": "String",
+                      "annotations": {
+                        "enum": {
+                          "type": "[Ljava.lang.String;",
+                          "values": [
+                            "NANOSECONDS",
+                            "MICROSECONDS",
+                            "MILLISECONDS",
+                            "SECONDS",
+                            "MINUTES",
+                            "HOURS",
+                            "DAYS"
+                          ]
+                        },
+                        "default": "MINUTES"
+                      }
+                    },
+                    "annotations": {
+                      "description": {
+                        "value": "A time unit that qualifies the maxIdleTime attribute"
+                      },
+                      "expressionSupport": {
+                        "value": "NOT_SUPPORTED"
+                      }
+                    }
+                  }
+                ]
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "expressionSupport": "NOT_SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": false,
+                "allowTopLevelDefinition": false
+              },
+              "layoutModel": {
+                "password": false,
+                "text": false,
+                "query": false,
+                "tabName": "Advanced"
+              },
+              "allowedStereotypeModels": [],
+              "name": "expirationPolicy",
+              "description": "Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.",
+              "modelProperties": {
+                "org.mule.runtime.extension.api.property.QNameModelProperty": {
+                  "value": {
+                    "namespaceURI": "http://www.mulesoft.org/schema/mule/core",
+                    "localPart": "expiration-policy",
+                    "prefix": "mule"
+                  }
+                },
+                "org.mule.runtime.extension.api.property.InfrastructureParameterModelProperty": {
+                  "sequence": 4
+                }
+              }
+            }
+          ],
+          "exclusiveParametersModels": [],
+          "showInDsl": false,
+          "name": "General",
+          "description": "",
+          "modelProperties": {}
+        },
+        {
+          "parameters": [
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": true,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "secretName",
+              "displayModel": {
+                "displayName": "Secret Name"
+              },
+              "description": "Name of the AWS Secret. Prepend Environment if required.",
+              "modelProperties": {}
+            }
+          ],
+          "exclusiveParametersModels": [],
+          "showInDsl": true,
+          "name": "Secrets Manager",
+          "description": "",
+          "modelProperties": {}
+        },
+        {
+          "parameters": [
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": true,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "us-east-2",
+              "displayModel": {
+                "displayName": "AWS Secrets Manager Region"
+              },
+              "description": "AWS Secrets Manager region as us-east-2",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "accessKey",
+              "displayModel": {
+                "displayName": "AWS Access Key"
+              },
+              "description": "AWS Access Key",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "secretKey",
+              "displayModel": {
+                "displayName": "AWS Secret Key"
+              },
+              "description": "AWS Secret Key",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "sessionToken",
+              "displayModel": {
+                "displayName": "Session Token"
+              },
+              "description": "The session token provided by Amazon STS.",
+              "modelProperties": {}
+            }
+          ],
+          "exclusiveParametersModels": [],
+          "showInDsl": true,
+          "name": "Basic Connection",
+          "description": "",
+          "modelProperties": {}
+        },
+        {
+          "parameters": [
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "roleARN",
+              "displayModel": {
+                "displayName": "Role ARN"
+              },
+              "description": "The Role ARN unique identifies role to assume in order to gain cross account access.",
+              "modelProperties": {}
+            }
+          ],
+          "exclusiveParametersModels": [],
+          "showInDsl": true,
+          "name": "Role Connection",
+          "description": "",
+          "modelProperties": {}
+        },
+        {
+          "parameters": [
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "customServiceEndPoint",
+              "displayModel": {
+                "displayName": "Custom Service Endpoint"
+              },
+              "description": "Sets a custom service endpoint. Useful when a non-standard service endpoint is required, such as a VPC endpoint.",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "Boolean"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "expressionSupport": "SUPPORTED",
+              "defaultValue": false,
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": true,
+                "allowsReferences": true,
+                "allowTopLevelDefinition": false
+              },
+              "allowedStereotypeModels": [],
+              "name": "useDefaultAWSCredentialsProviderChain",
+              "displayModel": {
+                "displayName": "Use Default AWSCredentials Provider Chain"
+              },
+              "description": "Set this field to true to obtain credentials from the AWS environment, See: https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/credentials.html\"",
+              "modelProperties": {}
+            }
+          ],
+          "exclusiveParametersModels": [],
+          "showInDsl": true,
+          "name": "Advanced Connection",
+          "description": "",
+          "modelProperties": {}
+        }
+      ],
+      "externalLibraryModels": [],
+      "operations": [],
+      "connectionProviders": [],
+      "messageSources": [],
+      "name": "config",
+      "description": "",
+      "modelProperties": {}
+    }
+  ],
+  "operations": [],
+  "functions": [],
+  "constructs": [],
+  "connectionProviders": [],
+  "messageSources": [],
+  "notifications": [],
+  "errors": [],
+  "modelProperties": {},
+  "types": []
+}
